@@ -15,7 +15,12 @@ alert(credentials)
 
 
 // !- Prompt the user for a user id
-let userId = Number(prompt("Enter a user id"))
+let userId =Number(prompt("Enter a user id from 1 to 10"))
+while(isNaN(userId)){
+    alert("Please enter a number");
+    userId = Number(prompt("Enter the user id again from 1 to 10"));
+}
+
 
 
 // !- Display an alert with the username and all the todos titles that belong to that user 
@@ -28,14 +33,21 @@ for (let name in users) {
         )
     }
 }
-    
+
+// !Ask Nico how to put a loop that raises the number of tasks by 1
+let counter = 0;
+for (let t in todos) {
+    counter++
+}
+
 for(let todo in todos){
     if(todos[todo].userId === userId){
         userAndTodos.push(
-            `${todos[todo].title}\n`,
+            `Task${counter} : ${todos[todo].title}\n`,
         )
     }
 }
+
 
 console.log(userAndTodos)
 
